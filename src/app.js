@@ -83,6 +83,7 @@ function renderSkillsForm() {
       const text = document.createElement('span');
       text.textContent = skill.name;
       text.tabIndex = 0;
+      text.setAttribute('role', 'button');
 
       if (skill.levelDescriptions) {
         attachTooltip(text, skill, () => selections[skill.id] ?? 0);

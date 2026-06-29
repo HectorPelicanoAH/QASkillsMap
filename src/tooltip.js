@@ -34,7 +34,7 @@ function positionTooltip(tooltip, target) {
 export function attachTooltip(labelEl, skill, getCurrentLevel) {
   labelEl.classList.add('has-tooltip');
 
-  labelEl.addEventListener('mouseenter', (e) => {
+  function showTooltip() {
     const currentLevel = getCurrentLevel();
     const tooltip = getTooltip();
 
@@ -51,19 +51,16 @@ export function attachTooltip(labelEl, skill, getCurrentLevel) {
       <ul class="tooltip-levels">${rows}</ul>
     `;
 
-    positionTooltip(tooltip, e.currentTarget);
+    positionTooltip(tooltip, labelEl);
     tooltip.classList.add('skill-tooltip--visible');
-  });
+  }
 
-  labelEl.addEventListener('mouseleave', () => {
+  function hideTooltip() {
     getTooltip().classList.remove('skill-tooltip--visible');
-  });
+  }
 
-  labelEl.addEventListener('focusin', (e) => {
-    labelEl.dispatchEvent(new MouseEvent('mouseenter', { bubbles: false }));
-  });
-
-  labelEl.addEventListener('focusout', () => {
-    getTooltip().classList.remove('skill-tooltip--visible');
-  });
+  labelEl.addEventListener('mouseenter', showTooltip);
+  labelEl.addEventListener('mouseleave', hideTooltip);
+  labelEl.addEventListener('focusin', showTooltip);
+  labelEl.addEventListener('focusout', hideTooltip);
 }
