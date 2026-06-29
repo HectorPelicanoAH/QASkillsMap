@@ -16,15 +16,23 @@ const MIME_TYPES = {
 };
 
 function resolveFile(requestUrl) {
-  const rawPath = requestUrl === '/' ? '/index.html' : requestUrl;
-  const safePath = path.normalize(rawPath).replace(/^([.][.][/\\])+/, '');
-  return path.join(__dirname, safePath);
+  const url = new URL(requestUrl || '/', 'http://localhost');
+  const requestedPath = decodeURIComponent(url.pathname);
+  const rawPath = requestedPath === '/' ? '/index.html' : requestedPath;
+  const normalized = path.normalize(rawPath).replace(/^([/\\])+/, '');
+  const resolvedPath = path.resolve(__dirname, normalized);
+
+  if (!resolvedPath.startsWith(__dirname + path.sep)) {
+    return null;
+  }
+
+  return resolvedPath;
 }
 
 const server = http.createServer((req, res) => {
   const filePath = resolveFile(req.url || '/');
 
-  if (!existsSync(filePath) || !statSync(filePath).isFile()) {
+  if (!filePath || !existsSync(filePath) || !statSync(filePath).isFile()) {
     res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
     res.end('404 Not Found');
     return;

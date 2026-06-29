@@ -2,16 +2,16 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { calculateScoreDetails, getDefaultSelections, getMaxScore } from '../src/scoring.js';
 
-test('el score máximo agregado es 100', () => {
+test('maximum aggregated score is 100', () => {
   assert.equal(getMaxScore(), 100);
 });
 
-test('el perfil por defecto obtiene 0 puntos', () => {
+test('default profile gets 0 points', () => {
   const details = calculateScoreDetails(getDefaultSelections());
   assert.equal(details.total, 0);
 });
 
-test('nivel máximo en todas las skills devuelve 100', () => {
+test('maximum level in all skills returns 100', () => {
   const selections = Object.fromEntries(
     Object.keys(getDefaultSelections()).map((skillId) => [skillId, 4])
   );

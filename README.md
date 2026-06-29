@@ -22,7 +22,7 @@ Después abre `http://localhost:3000`.
 
 ## Configuración de áreas y skills
 
-Edita `/home/runner/work/QASkillsMap/QASkillsMap/src/skills-data.js` para ajustar:
+Edita `src/skills-data.js` para ajustar:
 
 - áreas funcionales,
 - skills,
