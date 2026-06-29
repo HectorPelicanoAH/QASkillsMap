@@ -167,7 +167,9 @@ function importProfile(file) {
       renderSkillsForm();
       renderDashboard();
     } catch {
-      window.alert('Error al importar: el archivo no tiene el formato JSON esperado o está corrupto.');
+      window.alert(
+        'Error al importar: usa un JSON exportado por la app (ejemplo: {"selections":{"test-design":2}}).'
+      );
     }
   };
   reader.readAsText(file);
