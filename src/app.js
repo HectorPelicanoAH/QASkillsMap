@@ -1,11 +1,14 @@
 import { LEVELS, SKILL_AREAS } from './skills-data.js';
 import { calculateScoreDetails, getDefaultSelections, getMaxScore } from './scoring.js';
+import { renderRadarChart } from './radar-chart.js';
+import { attachTooltip } from './tooltip.js';
 
 const STORAGE_KEY = 'qa-skills-map-profile-v1';
 
 const skillsContainer = document.querySelector('#skills-container');
 const scoreValue = document.querySelector('#score-value');
 const scoreSubtitle = document.querySelector('#score-subtitle');
+const radarContainer = document.querySelector('#radar-chart-container');
 const areaSummary = document.querySelector('#area-summary');
 const strengthsList = document.querySelector('#strengths-list');
 const opportunitiesList = document.querySelector('#opportunities-list');
@@ -79,6 +82,11 @@ function renderSkillsForm() {
 
       const text = document.createElement('span');
       text.textContent = skill.name;
+      text.tabIndex = 0;
+
+      if (skill.levelDescriptions) {
+        attachTooltip(text, skill, () => selections[skill.id] ?? 0);
+      }
 
       row.append(text, createLevelSelect(skill.id));
       list.append(row);
@@ -125,6 +133,7 @@ function renderDashboard() {
   scoreValue.textContent = String(percentage);
   scoreSubtitle.textContent = `${details.total}/${getMaxScore()} puntos`;
 
+  renderRadarChart(radarContainer, details.areaScores);
   renderAreaSummary(details.areaScores);
   renderSkillRanking(strengthsList, details.strengths);
   renderSkillRanking(opportunitiesList, details.opportunities);
