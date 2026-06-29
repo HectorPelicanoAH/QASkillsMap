@@ -1,0 +1,133 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, Segoe UI, Arial, sans-serif;
+  line-height: 1.4;
+  color: #1b263b;
+  background: #f3f6fb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.panel {
+  background: #fff;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: 0 1px 8px rgba(15, 38, 74, 0.08);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+button,
+.import-label {
+  border: 1px solid #d4ddee;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: #edf2fb;
+  cursor: pointer;
+}
+
+.import-label input {
+  display: none;
+}
+
+.areas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0.75rem;
+}
+
+.area-card {
+  border: 1px solid #e4eaf6;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+}
+
+.skill-list {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.skill-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.skill-row select {
+  min-width: 170px;
+}
+
+.fifa-card {
+  border: 2px solid #f6c453;
+  border-radius: 0.75rem;
+  text-align: center;
+  background: linear-gradient(150deg, #fbe08c, #efb52f);
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+.card-title {
+  margin: 0.75rem 0 0;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.score {
+  margin: 0;
+  font-size: 4rem;
+  font-weight: 800;
+}
+
+.score-subtitle {
+  margin: 0 0 0.75rem;
+}
+
+.area-summary {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.area-summary-item {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.area-summary-item progress {
+  width: 100%;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+@media (max-width: 960px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}

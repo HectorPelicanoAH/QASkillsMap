@@ -1,0 +1,19 @@
+{
+  "name": "qaskillsmap",
+  "version": "1.0.0",
+  "description": "Mapa local de skills QA con puntuación ponderada",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node --test"
+  },
+  "keywords": [
+    "qa",
+    "skills",
+    "roadmap"
+  ],
+  "author": "",
+  "license": "ISC"
+}
