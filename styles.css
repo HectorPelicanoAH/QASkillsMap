@@ -76,6 +76,20 @@ button,
   min-width: 170px;
 }
 
+.skill-weight-badge {
+  display: inline-block;
+  margin-left: 0.35rem;
+  padding: 0.1rem 0.35rem;
+  border-radius: 0.3rem;
+  background: #edf2fb;
+  border: 1px solid #d4ddee;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #4b6080;
+  vertical-align: middle;
+  line-height: 1.2;
+}
+
 .fifa-card {
   border: 2px solid #f6c453;
   border-radius: 0.75rem;

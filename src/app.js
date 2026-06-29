@@ -85,6 +85,13 @@ function renderSkillsForm() {
       text.tabIndex = 0;
       text.setAttribute('role', 'button');
 
+      if (skill.weight !== undefined) {
+        const badge = document.createElement('span');
+        badge.className = 'skill-weight-badge';
+        badge.textContent = `${skill.weight}pt`;
+        text.append(badge);
+      }
+
       if (skill.levelDescriptions) {
         attachTooltip(text, skill, () => selections[skill.id] ?? 0);
       }

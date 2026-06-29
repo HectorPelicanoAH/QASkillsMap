@@ -16,6 +16,7 @@ export const SKILL_AREAS = [
       {
         id: 'test-design',
         name: 'Diseño de casos de prueba',
+        weight: 4,
         levelDescriptions: [
           'No conoces técnicas de diseño de tests.',
           'Conoces pruebas básicas funcionales y caja negra.',
@@ -27,6 +28,7 @@ export const SKILL_AREAS = [
       {
         id: 'exploratory-testing',
         name: 'Testing exploratorio',
+        weight: 4,
         levelDescriptions: [
           'No has practicado testing exploratorio estructurado.',
           'Exploras la aplicación de forma libre y documentas hallazgos básicos.',
@@ -38,6 +40,7 @@ export const SKILL_AREAS = [
       {
         id: 'defect-reporting',
         name: 'Reporte y gestión de defectos',
+        weight: 4,
         levelDescriptions: [
           'No sabes cómo documentar bugs de forma efectiva.',
           'Creas tickets básicos con descripción y pasos reproducibles.',
@@ -49,6 +52,7 @@ export const SKILL_AREAS = [
       {
         id: 'regression-testing',
         name: 'Testing de regresión',
+        weight: 3,
         levelDescriptions: [
           'No has gestionado ciclos de regresión.',
           'Ejecutas suites de regresión existentes siguiendo instrucciones.',
@@ -68,6 +72,7 @@ export const SKILL_AREAS = [
       {
         id: 'ui-automation',
         name: 'Automatización UI / E2E',
+        weight: 6,
         levelDescriptions: [
           'No has escrito tests de interfaz automatizados.',
           'Has ejecutado o modificado tests E2E existentes.',
@@ -79,6 +84,7 @@ export const SKILL_AREAS = [
       {
         id: 'api-automation',
         name: 'Automatización de APIs',
+        weight: 5,
         levelDescriptions: [
           'No has automatizado pruebas de API.',
           'Conoces los conceptos REST y has ejecutado colecciones existentes.',
@@ -90,6 +96,7 @@ export const SKILL_AREAS = [
       {
         id: 'test-frameworks',
         name: 'Diseño de frameworks de pruebas',
+        weight: 5,
         levelDescriptions: [
           'Usas frameworks tal como te los entregan.',
           'Entiendes la estructura básica de un framework existente.',
@@ -101,6 +108,7 @@ export const SKILL_AREAS = [
       {
         id: 'bdd',
         name: 'BDD / Gherkin / Cucumber',
+        weight: 4,
         levelDescriptions: [
           'No has trabajado con BDD.',
           'Lees y ejecutas escenarios Gherkin existentes.',
@@ -120,6 +128,7 @@ export const SKILL_AREAS = [
       {
         id: 'playwright',
         name: 'Playwright',
+        weight: 5,
         levelDescriptions: [
           'No has utilizado Playwright.',
           'Has ejecutado tests existentes y conoces la sintaxis básica.',
@@ -131,6 +140,7 @@ export const SKILL_AREAS = [
       {
         id: 'selenium',
         name: 'Selenium / WebDriver',
+        weight: 3,
         levelDescriptions: [
           'No has usado Selenium o WebDriver.',
           'Ejecutas tests existentes y entiendes el driver pattern.',
@@ -142,6 +152,7 @@ export const SKILL_AREAS = [
       {
         id: 'postman',
         name: 'Postman / REST Assured',
+        weight: 4,
         levelDescriptions: [
           'No has realizado pruebas de API con estas herramientas.',
           'Ejecutas colecciones existentes en Postman.',
@@ -153,6 +164,7 @@ export const SKILL_AREAS = [
       {
         id: 'cypress',
         name: 'Cypress',
+        weight: 3,
         levelDescriptions: [
           'No has utilizado Cypress.',
           'Ejecutas tests existentes y conoces el panel interactivo de Cypress.',
@@ -172,6 +184,7 @@ export const SKILL_AREAS = [
       {
         id: 'jenkins',
         name: 'Jenkins',
+        weight: 3,
         levelDescriptions: [
           'No has trabajado con Jenkins.',
           'Ejecutas jobs existentes y lees logs de CI.',
@@ -183,6 +196,7 @@ export const SKILL_AREAS = [
       {
         id: 'github-actions',
         name: 'GitHub Actions',
+        weight: 3,
         levelDescriptions: [
           'No has trabajado con GitHub Actions.',
           'Lees workflows existentes y entiendes el flujo básico.',
@@ -194,6 +208,7 @@ export const SKILL_AREAS = [
       {
         id: 'docker-testing',
         name: 'Docker en Testing',
+        weight: 3,
         levelDescriptions: [
           'No has usado Docker en el contexto de testing.',
           'Ejecutas contenedores existentes para levantar entornos de prueba.',
@@ -205,6 +220,7 @@ export const SKILL_AREAS = [
       {
         id: 'quality-gates',
         name: 'Quality Gates y métricas',
+        weight: 3,
         levelDescriptions: [
           'No has definido ni gestionado quality gates.',
           'Conoces el concepto y lees reportes de cobertura o análisis estático.',
@@ -224,6 +240,7 @@ export const SKILL_AREAS = [
       {
         id: 'jira',
         name: 'Jira',
+        weight: 2,
         levelDescriptions: [
           'No has usado Jira.',
           'Creas y actualizas tickets básicos (bugs, tasks).',
@@ -235,6 +252,7 @@ export const SKILL_AREAS = [
       {
         id: 'git',
         name: 'Git / Control de versiones',
+        weight: 2,
         levelDescriptions: [
           'No has usado Git.',
           'Usas add, commit, push y pull en ramas existentes.',
@@ -246,6 +264,7 @@ export const SKILL_AREAS = [
       {
         id: 'agile-qa',
         name: 'QA en metodologías Agile',
+        weight: 2,
         levelDescriptions: [
           'No has trabajado en entornos Agile.',
           'Participas en ceremonies (daily, sprint review) y entiendes el flujo de trabajo.',
@@ -257,6 +276,7 @@ export const SKILL_AREAS = [
       {
         id: 'documentation',
         name: 'Documentación técnica',
+        weight: 2,
         levelDescriptions: [
           'No generas documentación de testing.',
           'Documentas casos de prueba básicos en plantillas estándar.',
@@ -276,6 +296,7 @@ export const SKILL_AREAS = [
       {
         id: 'load-testing',
         name: 'JMeter / k6 / Gatling',
+        weight: 4,
         levelDescriptions: [
           'No has ejecutado pruebas de carga.',
           'Ejecutas scripts de carga existentes y lees resultados básicos (TPS, latencia).',
@@ -287,6 +308,7 @@ export const SKILL_AREAS = [
       {
         id: 'performance-monitoring',
         name: 'Monitorización de performance',
+        weight: 3,
         levelDescriptions: [
           'No has usado herramientas de APM o monitorización.',
           'Lees dashboards de métricas básicas (CPU, memoria, tiempo de respuesta).',
@@ -298,6 +320,7 @@ export const SKILL_AREAS = [
       {
         id: 'bottleneck-analysis',
         name: 'Análisis de cuellos de botella',
+        weight: 3,
         levelDescriptions: [
           'No has analizado problemas de rendimiento.',
           'Identificas tiempos de respuesta lentos mediante logs o trazas básicas.',
@@ -317,6 +340,7 @@ export const SKILL_AREAS = [
       {
         id: 'kpi-definition',
         name: 'Definición de KPIs de calidad',
+        weight: 4,
         levelDescriptions: [
           'No has definido métricas de calidad de software.',
           'Conoces métricas básicas como tasa de defectos y cobertura de tests.',
@@ -328,6 +352,7 @@ export const SKILL_AREAS = [
       {
         id: 'dashboarding',
         name: 'Dashboards y reporting',
+        weight: 3,
         levelDescriptions: [
           'No has creado dashboards de calidad.',
           'Lees e interpretas dashboards existentes de CI/CD o cobertura.',
@@ -339,6 +364,7 @@ export const SKILL_AREAS = [
       {
         id: 'log-analysis',
         name: 'Análisis de logs y trazas',
+        weight: 3,
         levelDescriptions: [
           'No has analizado logs de sistemas.',
           'Lees logs de aplicación para entender errores básicos.',
@@ -358,6 +384,7 @@ export const SKILL_AREAS = [
       {
         id: 'javascript-typescript',
         name: 'JavaScript / TypeScript',
+        weight: 3,
         levelDescriptions: [
           'No tienes experiencia con JavaScript o TypeScript.',
           'Entiendes la sintaxis básica: variables, funciones y condicionales.',
@@ -369,6 +396,7 @@ export const SKILL_AREAS = [
       {
         id: 'python',
         name: 'Python',
+        weight: 3,
         levelDescriptions: [
           'No tienes experiencia con Python.',
           'Entiendes la sintaxis básica y puedes leer scripts simples.',
@@ -380,6 +408,7 @@ export const SKILL_AREAS = [
       {
         id: 'java',
         name: 'Java / Kotlin',
+        weight: 2,
         levelDescriptions: [
           'No tienes experiencia con Java o Kotlin.',
           'Entiendes la sintaxis OOP básica y puedes leer código Java.',
@@ -391,6 +420,7 @@ export const SKILL_AREAS = [
       {
         id: 'sql',
         name: 'SQL y bases de datos',
+        weight: 2,
         levelDescriptions: [
           'No tienes experiencia con SQL.',
           'Ejecutas SELECTs básicos y entiendes la estructura de tablas.',
