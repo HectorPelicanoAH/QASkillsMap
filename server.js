@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const baseDir = path.resolve(__dirname);
 const PORT = Number(process.env.PORT || 3000);
 
 const MIME_TYPES = {
@@ -22,7 +23,7 @@ function resolveFile(requestUrl) {
   const normalized = path.normalize(rawPath).replace(/^([/\\])+/, '');
   const resolvedPath = path.resolve(__dirname, normalized);
 
-  if (!resolvedPath.startsWith(__dirname + path.sep)) {
+  if (!resolvedPath.startsWith(baseDir + path.sep)) {
     return null;
   }
 

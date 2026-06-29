@@ -167,7 +167,7 @@ function importProfile(file) {
       renderSkillsForm();
       renderDashboard();
     } catch {
-      window.alert('El archivo no es válido. Usa un JSON exportado por la app.');
+      window.alert('Error al importar: el archivo no tiene el formato JSON esperado o está corrupto.');
     }
   };
   reader.readAsText(file);
