@@ -160,17 +160,25 @@ function importProfile(file) {
 
   const reader = new FileReader();
   reader.onload = () => {
+    let parsed;
     try {
-      const parsed = JSON.parse(String(reader.result));
-      selections = { ...getDefaultSelections(), ...(parsed.selections || {}) };
-      persistSelections();
-      renderSkillsForm();
-      renderDashboard();
+      parsed = JSON.parse(String(reader.result));
     } catch {
-      window.alert(
-        'Error al importar: usa un JSON exportado por la app (ejemplo: {"selections":{"test-design":2}}).'
-      );
+      window.alert('Error al importar: el archivo no es un JSON válido.');
+      return;
     }
+
+    if (!parsed || typeof parsed !== 'object' || typeof parsed.selections !== 'object') {
+      window.alert(
+        'Error al importar: formato inválido. Usa un JSON exportado por la app con clave "selections".'
+      );
+      return;
+    }
+
+    selections = { ...getDefaultSelections(), ...parsed.selections };
+    persistSelections();
+    renderSkillsForm();
+    renderDashboard();
   };
   reader.readAsText(file);
 }
