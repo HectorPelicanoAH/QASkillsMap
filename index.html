@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QA Skills Map</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <section class="panel">
+        <h1>QA Skills Map</h1>
+        <p>Evalúa tus skills QA y obtén una ficha estilo FIFA de fortalezas y oportunidades.</p>
+        <div class="actions">
+          <button id="reset-profile" type="button">Reiniciar perfil</button>
+          <button id="export-profile" type="button">Exportar JSON</button>
+          <label class="import-label">
+            Importar JSON
+            <input id="import-profile" type="file" accept="application/json" />
+          </label>
+        </div>
+        <div id="skills-container" class="areas-grid"></div>
+      </section>
+
+      <section class="panel card-panel">
+        <h2>Ficha QA</h2>
+        <article class="fifa-card">
+          <p class="card-title">OVERALL</p>
+          <p class="score"><span id="score-value">0</span></p>
+          <p id="score-subtitle" class="score-subtitle">0/100 puntos</p>
+        </article>
+
+        <h3>Peso por área</h3>
+        <div id="area-summary" class="area-summary"></div>
+
+        <div class="columns">
+          <div>
+            <h3>Fortalezas</h3>
+            <ul id="strengths-list"></ul>
+          </div>
+          <div>
+            <h3>Debilidades</h3>
+            <ul id="opportunities-list"></ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="/src/app.js"></script>
+  </body>
+</html>

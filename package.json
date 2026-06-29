@@ -1,20 +1,19 @@
 {
   "name": "qaskillsmap",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Mapa local de skills QA con puntuación ponderada",
+  "type": "module",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node --test"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/HectorPelicanoAH/QASkillsMap.git"
-  },
-  "keywords": [],
+  "keywords": [
+    "qa",
+    "skills",
+    "roadmap"
+  ],
   "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/HectorPelicanoAH/QASkillsMap/issues"
-  },
-  "homepage": "https://github.com/HectorPelicanoAH/QASkillsMap#readme"
+  "license": "ISC"
 }
