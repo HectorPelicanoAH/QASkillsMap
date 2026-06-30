@@ -186,26 +186,16 @@ function renderAreaBadges(areaScores) {
 
 function renderDashboard() {
   const details = calculateScoreDetails(selections);
-
-  // Filter to checked areas only for the right panel
-  const filteredAreaScores = details.areaScores.filter((a) => checkedAreas.has(a.areaId));
-  const filteredSkillScores = details.skillScores.filter((s) => checkedAreas.has(s.areaId));
-
-  const rawTotal = filteredAreaScores.reduce((sum, a) => sum + a.score, 0);
-  const filteredTotal = Number(rawTotal.toFixed(2));
-  const filteredMax = filteredAreaScores.length * 100;
-  const percentage = filteredMax > 0 ? Math.round((filteredTotal / filteredMax) * 100) : 0;
+  const percentage = Math.round((details.total / details.maxTotal) * 100);
 
   scoreValue.textContent = String(percentage);
-  scoreSubtitle.textContent =
-    filteredMax > 0
-      ? `${filteredTotal}/${filteredMax} puntos`
-      : 'Marca áreas para ver tu puntuación';
+  scoreSubtitle.textContent = `${details.total}/${getMaxScore()} puntos`;
 
-  renderRadarChart(radarContainer, filteredAreaScores);
-  renderAreaSummary(filteredAreaScores);
+  renderRadarChart(radarContainer, details.areaScores);
+  renderAreaSummary(details.areaScores);
   renderAreaBadges(details.areaScores);
 
+  const filteredSkillScores = details.skillScores.filter((s) => checkedAreas.has(s.areaId));
   const sortedFiltered = [...filteredSkillScores].sort((a, b) => b.score - a.score);
   renderSkillRanking(strengthsList, sortedFiltered.slice(0, 3));
   renderSkillRanking(opportunitiesList, sortedFiltered.slice(-3).reverse());
