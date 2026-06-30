@@ -191,9 +191,8 @@ function renderDashboard() {
   const filteredAreaScores = details.areaScores.filter((a) => checkedAreas.has(a.areaId));
   const filteredSkillScores = details.skillScores.filter((s) => checkedAreas.has(s.areaId));
 
-  const filteredTotal = Number(
-    filteredAreaScores.reduce((sum, a) => sum + a.score, 0).toFixed(2)
-  );
+  const rawTotal = filteredAreaScores.reduce((sum, a) => sum + a.score, 0);
+  const filteredTotal = Number(rawTotal.toFixed(2));
   const filteredMax = filteredAreaScores.length * 100;
   const percentage = filteredMax > 0 ? Math.round((filteredTotal / filteredMax) * 100) : 0;
 
