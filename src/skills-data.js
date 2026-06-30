@@ -376,6 +376,62 @@ export const SKILL_AREAS = [
     ]
   },
   {
+    id: 'accessibility',
+    name: 'Accesibilidad',
+    chartLabel: 'Accesi-\nbilidad',
+    weight: 10,
+    skills: [
+      {
+        id: 'wcag-knowledge',
+        name: 'WCAG y cumplimiento normativo',
+        weight: 3,
+        levelDescriptions: [
+          'No conoces pautas de accesibilidad ni estándares WCAG.',
+          'Conoces principios básicos (perceptible, operable, comprensible, robusto) y términos comunes.',
+          'Aplicas criterios WCAG 2.1 AA en revisiones funcionales y detectas incumplimientos frecuentes.',
+          'Interpretas criterios complejos, defines checklists de cumplimiento y acompañas remediaciones.',
+          'Lideras la estrategia de accesibilidad, defines políticas de cumplimiento y referencias normativas.'
+        ]
+      },
+      {
+        id: 'a11y-manual-testing',
+        name: 'Testing manual de accesibilidad',
+        weight: 3,
+        levelDescriptions: [
+          'No has ejecutado pruebas manuales de accesibilidad.',
+          'Validas aspectos básicos como contraste, tamaño de fuente y textos alternativos.',
+          'Ejecutas pruebas de navegación por teclado, foco visible, estructura de headings y formularios.',
+          'Diseñas sesiones de testing a11y por flujos críticos y priorizas hallazgos por impacto en usuarios.',
+          'Defines el proceso de testing manual a11y del equipo y entrenas a otros QAs en técnicas avanzadas.'
+        ]
+      },
+      {
+        id: 'a11y-automation-tools',
+        name: 'Automatización con herramientas a11y',
+        weight: 2,
+        levelDescriptions: [
+          'No has usado herramientas automáticas de accesibilidad.',
+          'Ejecutas escaneos puntuales con herramientas como Lighthouse o axe en entornos locales.',
+          'Integras checks automáticos de accesibilidad en suites de UI y reportas issues accionables.',
+          'Configuras reglas, umbrales y ejecución en CI para prevenir regresiones de accesibilidad.',
+          'Diseñas una estrategia híbrida (manual + automatizada) y defines estándares de calidad a11y en la organización.'
+        ]
+      },
+      {
+        id: 'assistive-tech-validation',
+        name: 'Validación con tecnologías asistivas',
+        weight: 2,
+        levelDescriptions: [
+          'No has validado productos con tecnologías asistivas.',
+          'Conoces conceptos de lectores de pantalla y haces pruebas básicas guiadas.',
+          'Pruebas flujos con NVDA/VoiceOver y verificas anuncios, landmarks y orden de lectura.',
+          'Diagnosticas problemas complejos de ARIA, nombre accesible y comportamiento dinámico del DOM.',
+          'Lideras validaciones con usuarios y tecnologías asistivas, y defines criterios de aceptación inclusivos.'
+        ]
+      }
+    ]
+  },
+  {
     id: 'languages',
     name: 'Lenguajes',
     chartLabel: 'Lenguajes',
