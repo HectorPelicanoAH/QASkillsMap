@@ -238,15 +238,15 @@ export const SKILL_AREAS = [
     weight: 8,
     skills: [
       {
-        id: 'jira',
-        name: 'Jira',
+        id: 'jira-azure-devops',
+        name: 'Jira / Azure DevOps',
         weight: 2,
         levelDescriptions: [
-          'No has usado Jira.',
+          'No has usado Jira o Azure DevOps.',
           'Creas y actualizas tickets básicos (bugs, tasks).',
           'Gestionas sprints, epics y subtareas, usas filtros JQL básicos.',
           'Configuras proyectos, workflows personalizados, dashboards y automatizaciones.',
-          'Administras Jira a nivel organizacional y defines procesos de gestión de defectos.'
+          'Administras Jira o Azure DevOps a nivel organizacional y defines procesos de gestión de defectos.'
         ]
       },
       {
