@@ -68,9 +68,14 @@ function renderSkillsForm() {
   for (const area of SKILL_AREAS) {
     const section = document.createElement('section');
     section.className = 'area-card';
+    section.dataset.areaId = area.id;
 
     const title = document.createElement('h3');
-    title.textContent = `${area.name} (100 puntos)`;
+    const titleText = document.createTextNode(`${area.name} (100 puntos) `);
+    const badge = document.createElement('span');
+    badge.className = 'area-status-badge';
+    badge.dataset.areaBadge = area.id;
+    title.append(titleText, badge);
     section.append(title);
 
     const list = document.createElement('div');
@@ -134,6 +139,21 @@ function renderAreaSummary(areas) {
   }
 }
 
+function renderAreaBadges(areaScores) {
+  for (const area of areaScores) {
+    const badge = skillsContainer.querySelector(`[data-area-badge="${area.areaId}"]`);
+    if (!badge) continue;
+    const pct = area.score / area.maxScore;
+    if (pct >= 0.75) {
+      badge.textContent = 'puedo enseñar';
+      badge.className = 'area-status-badge area-status--teaching';
+    } else {
+      badge.textContent = 'quiero aprender';
+      badge.className = 'area-status-badge area-status--learning';
+    }
+  }
+}
+
 function renderDashboard() {
   const details = calculateScoreDetails(selections);
   const percentage = Math.round((details.total / details.maxTotal) * 100);
@@ -143,6 +163,7 @@ function renderDashboard() {
 
   renderRadarChart(radarContainer, details.areaScores);
   renderAreaSummary(details.areaScores);
+  renderAreaBadges(details.areaScores);
   renderSkillRanking(strengthsList, details.strengths);
   renderSkillRanking(opportunitiesList, details.opportunities);
 }
