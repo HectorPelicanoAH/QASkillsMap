@@ -70,7 +70,7 @@ function renderSkillsForm() {
     section.className = 'area-card';
 
     const title = document.createElement('h3');
-    title.textContent = `${area.name} (${area.weight} puntos)`;
+    title.textContent = `${area.name} (100 puntos)`;
     section.append(title);
 
     const list = document.createElement('div');
