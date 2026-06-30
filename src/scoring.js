@@ -2,8 +2,8 @@ import { LEVELS, SKILL_AREAS } from './skills-data.js';
 
 const levelFactorByValue = new Map(LEVELS.map((level) => [level.value, level.factor]));
 
-function getSkillWeight(area) {
-  return area.weight / area.skills.length;
+function getSkillWeight(area, skill) {
+  return skill.weight ?? area.weight / area.skills.length;
 }
 
 export function getMaxScore() {
@@ -22,10 +22,10 @@ export function calculateScoreDetails(selections) {
   const skillScores = [];
 
   for (const area of SKILL_AREAS) {
-    const skillWeight = getSkillWeight(area);
     let areaTotal = 0;
 
     for (const skill of area.skills) {
+      const skillWeight = getSkillWeight(area, skill);
       const selectedLevel = Number(selections[skill.id] ?? 0);
       const factor = levelFactorByValue.get(selectedLevel) ?? 0;
       const weightedScore = skillWeight * factor;
