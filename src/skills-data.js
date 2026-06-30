@@ -22,7 +22,7 @@ export const SKILL_AREAS = [
           'Conoces pruebas básicas funcionales y caja negra.',
           'Aplicas partición de equivalencia, valores límite y tablas de decisión.',
           'Dominas técnicas avanzadas (pairwise, grafos de causa-efecto) y criterios de cobertura.',
-          'Defines la estrategia de diseño del equipo y formas a otros en técnicas avanzadas.'
+          'Defines la estrategia de diseño de casos de prueba y/o defines la estrategia de UAT.'
         ]
       },
       {
@@ -59,6 +59,18 @@ export const SKILL_AREAS = [
           'Seleccionas casos de regresión relevantes según el impacto del cambio.',
           'Diseñas estrategias de regresión selectiva y smoke testing automatizado.',
           'Optimizas el portfolio de regresión con cobertura basada en riesgo y datos.'
+        ]
+      },
+      {
+        id: 'mobile-manual-testing',
+        name: 'Testing manual en iOS y Android',
+        weight: 3,
+        levelDescriptions: [
+          'No has ejecutado pruebas manuales en aplicaciones mobile.',
+          'Ejecutas casos básicos en dispositivos o emuladores siguiendo un checklist.',
+          'Validas flujos críticos considerando permisos, interrupciones, orientación y distintos tamaños de pantalla.',
+          'Diseñas estrategias de testing por device matrix, versiones OS y condiciones reales de uso.',
+          'Defines la estrategia global de testing manual mobile y optimizas cobertura/riesgo para múltiples productos.'
         ]
       }
     ]
@@ -115,6 +127,18 @@ export const SKILL_AREAS = [
           'Escribes escenarios Gherkin bien estructurados y reutilizables.',
           'Diseñas la capa de step definitions, coordinas con negocio los escenarios.',
           'Lideras la adopción de BDD en la organización y facilitas Example Mapping.'
+        ]
+      },
+      {
+        id: 'mobile-automation-appium',
+        name: 'Automatización mobile (Appium / Maestro / Detox)',
+        weight: 3,
+        levelDescriptions: [
+          'No has automatizado pruebas mobile.',
+          'Ejecutas suites existentes y entiendes la estructura básica de tests mobile.',
+          'Implementas tests estables con locators robustos, sincronización y manejo de datos de prueba.',
+          'Diseñas frameworks mobile reutilizables, paralelización y ejecución multi-device en CI.',
+          'Defines estándares de automatización mobile a escala y lideras iniciativas anti-flakiness en la organización.'
         ]
       }
     ]
@@ -427,6 +451,18 @@ export const SKILL_AREAS = [
           'Pruebas flujos con NVDA/VoiceOver y verificas anuncios, landmarks y orden de lectura.',
           'Diagnosticas problemas complejos de ARIA, nombre accesible y comportamiento dinámico del DOM.',
           'Lideras validaciones con usuarios y tecnologías asistivas, y defines criterios de aceptación inclusivos.'
+        ]
+      },
+      {
+        id: 'mobile-accessibility-testing',
+        name: 'Accesibilidad en mobile (TalkBack / VoiceOver)',
+        weight: 2,
+        levelDescriptions: [
+          'No has evaluado accesibilidad en apps mobile.',
+          'Validas aspectos básicos de accesibilidad mobile en pantallas clave.',
+          'Pruebas navegación con TalkBack/VoiceOver, foco, etiquetas y orden de lectura en iOS/Android.',
+          'Diseñas pruebas de accesibilidad mobile por device matrix y priorizas hallazgos según impacto.',
+          'Defines estándares de accesibilidad mobile y guías de validación para equipos de producto.'
         ]
       }
     ]
