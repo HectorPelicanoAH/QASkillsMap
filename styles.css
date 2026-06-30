@@ -300,6 +300,9 @@ ul {
   white-space: nowrap;
   line-height: 1.4;
   vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  transition: opacity 0.15s ease, filter 0.15s ease;
 }
 
 .area-status--learning {
@@ -312,4 +315,14 @@ ul {
   background: #d1fae5;
   color: #065f46;
   border: 1px solid #6ee7b7;
+}
+
+.area-status--inactive {
+  filter: grayscale(1);
+  opacity: 0.45;
+}
+
+.area-status-badge:hover {
+  opacity: 1;
+  filter: none;
 }
