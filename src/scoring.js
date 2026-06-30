@@ -6,8 +6,12 @@ function getSkillWeight(area, skill) {
   return skill.weight ?? area.weight / area.skills.length;
 }
 
+function getAreaTotalWeight(area) {
+  return area.skills.reduce((sum, skill) => sum + getSkillWeight(area, skill), 0);
+}
+
 export function getMaxScore() {
-  return SKILL_AREAS.reduce((sum, area) => sum + area.weight, 0);
+  return SKILL_AREAS.length * 100;
 }
 
 export function getDefaultSelections() {
@@ -23,12 +27,14 @@ export function calculateScoreDetails(selections) {
 
   for (const area of SKILL_AREAS) {
     let areaTotal = 0;
+    const areaTotalWeight = getAreaTotalWeight(area);
 
     for (const skill of area.skills) {
       const skillWeight = getSkillWeight(area, skill);
+      const normalizedSkillMax = (skillWeight / areaTotalWeight) * 100;
       const selectedLevel = Number(selections[skill.id] ?? 0);
       const factor = levelFactorByValue.get(selectedLevel) ?? 0;
-      const weightedScore = skillWeight * factor;
+      const weightedScore = normalizedSkillMax * factor;
 
       areaTotal += weightedScore;
       skillScores.push({
@@ -38,7 +44,7 @@ export function calculateScoreDetails(selections) {
         skillName: skill.name,
         level: selectedLevel,
         score: Number(weightedScore.toFixed(2)),
-        maxScore: Number(skillWeight.toFixed(2))
+        maxScore: Number(normalizedSkillMax.toFixed(2))
       });
     }
 
@@ -46,7 +52,7 @@ export function calculateScoreDetails(selections) {
       areaId: area.id,
       areaName: area.name,
       score: Number(areaTotal.toFixed(2)),
-      maxScore: area.weight
+      maxScore: 100
     });
 
     total += areaTotal;
