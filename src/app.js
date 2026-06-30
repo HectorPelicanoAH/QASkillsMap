@@ -28,7 +28,20 @@ function loadSelections() {
   }
 }
 
+function loadCheckedAreas() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return new Set();
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed.checkedAreas)) return new Set();
+    return new Set(parsed.checkedAreas);
+  } catch {
+    return new Set();
+  }
+}
+
 let selections = loadSelections();
+let checkedAreas = loadCheckedAreas();
 
 function persistSelections() {
   localStorage.setItem(
@@ -36,7 +49,8 @@ function persistSelections() {
     JSON.stringify({
       version: 1,
       updatedAt: new Date().toISOString(),
-      selections
+      selections,
+      checkedAreas: [...checkedAreas]
     })
   );
 }
@@ -68,9 +82,32 @@ function renderSkillsForm() {
   for (const area of SKILL_AREAS) {
     const section = document.createElement('section');
     section.className = 'area-card';
+    section.dataset.areaId = area.id;
 
     const title = document.createElement('h3');
-    title.textContent = `${area.name} (100 puntos)`;
+    const titleText = document.createTextNode(`${area.name} (100 puntos) `);
+    const badge = document.createElement('span');
+    badge.className = 'area-status-badge';
+    badge.dataset.areaBadge = area.id;
+    badge.setAttribute('role', 'button');
+    badge.setAttribute('tabindex', '0');
+    badge.setAttribute('aria-pressed', 'false');
+    badge.addEventListener('click', () => {
+      if (checkedAreas.has(area.id)) {
+        checkedAreas.delete(area.id);
+      } else {
+        checkedAreas.add(area.id);
+      }
+      persistSelections();
+      renderDashboard();
+    });
+    badge.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        badge.click();
+      }
+    });
+    title.append(titleText, badge);
     section.append(title);
 
     const list = document.createElement('div');
@@ -105,12 +142,12 @@ function renderSkillsForm() {
   }
 }
 
-function renderSkillRanking(target, skills) {
+function renderAreaRanking(target, areas) {
   target.innerHTML = '';
 
-  for (const skill of skills) {
+  for (const area of areas) {
     const li = document.createElement('li');
-    li.textContent = `${skill.skillName} · ${skill.score}/${skill.maxScore}`;
+    li.textContent = `${area.areaName} · ${area.score}/${area.maxScore}`;
     target.append(li);
   }
 }
@@ -134,6 +171,19 @@ function renderAreaSummary(areas) {
   }
 }
 
+function renderAreaBadges(areaScores) {
+  for (const area of areaScores) {
+    const badge = skillsContainer.querySelector(`[data-area-badge="${area.areaId}"]`);
+    if (!badge) continue;
+    const pct = area.score / area.maxScore;
+    const isChecked = checkedAreas.has(area.areaId);
+    const statusClass = pct >= 0.75 ? 'area-status--teaching' : 'area-status--learning';
+    badge.textContent = pct >= 0.75 ? 'puedo enseñar ✓' : 'quiero aprender ✓';
+    badge.className = `area-status-badge ${statusClass}${isChecked ? '' : ' area-status--inactive'}`;
+    badge.setAttribute('aria-pressed', String(isChecked));
+  }
+}
+
 function renderDashboard() {
   const details = calculateScoreDetails(selections);
   const percentage = Math.round((details.total / details.maxTotal) * 100);
@@ -143,12 +193,18 @@ function renderDashboard() {
 
   renderRadarChart(radarContainer, details.areaScores);
   renderAreaSummary(details.areaScores);
-  renderSkillRanking(strengthsList, details.strengths);
-  renderSkillRanking(opportunitiesList, details.opportunities);
+  renderAreaBadges(details.areaScores);
+
+  const checkedAreaScores = details.areaScores.filter((a) => checkedAreas.has(a.areaId));
+  const teaching = checkedAreaScores.filter((a) => a.score / a.maxScore >= 0.75).sort((a, b) => b.score - a.score);
+  const learning = checkedAreaScores.filter((a) => a.score / a.maxScore < 0.75).sort((a, b) => a.score - b.score);
+  renderAreaRanking(strengthsList, teaching);
+  renderAreaRanking(opportunitiesList, learning);
 }
 
 function resetProfile() {
   selections = getDefaultSelections();
+  checkedAreas = new Set();
   persistSelections();
   renderSkillsForm();
   renderDashboard();
@@ -193,6 +249,9 @@ function importProfile(file) {
     }
 
     selections = { ...getDefaultSelections(), ...parsed.selections };
+    checkedAreas = Array.isArray(parsed.checkedAreas)
+      ? new Set(parsed.checkedAreas)
+      : new Set();
     persistSelections();
     renderSkillsForm();
     renderDashboard();
