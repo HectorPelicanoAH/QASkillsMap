@@ -195,9 +195,11 @@ function renderDashboard() {
   renderAreaSummary(details.areaScores);
   renderAreaBadges(details.areaScores);
 
-  const sortedAreas = details.areaScores.filter((a) => checkedAreas.has(a.areaId)).sort((a, b) => b.score - a.score);
-  renderAreaRanking(strengthsList, sortedAreas.slice(0, 3));
-  renderAreaRanking(opportunitiesList, sortedAreas.slice(-3).reverse());
+  const checkedAreaScores = details.areaScores.filter((a) => checkedAreas.has(a.areaId));
+  const teaching = checkedAreaScores.filter((a) => a.score / a.maxScore >= 0.75).sort((a, b) => b.score - a.score);
+  const learning = checkedAreaScores.filter((a) => a.score / a.maxScore < 0.75).sort((a, b) => a.score - b.score);
+  renderAreaRanking(strengthsList, teaching);
+  renderAreaRanking(opportunitiesList, learning);
 }
 
 function resetProfile() {
