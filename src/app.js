@@ -142,12 +142,12 @@ function renderSkillsForm() {
   }
 }
 
-function renderSkillRanking(target, skills) {
+function renderAreaRanking(target, areas) {
   target.innerHTML = '';
 
-  for (const skill of skills) {
+  for (const area of areas) {
     const li = document.createElement('li');
-    li.textContent = `${skill.skillName} · ${skill.score}/${skill.maxScore}`;
+    li.textContent = `${area.areaName} · ${area.score}/${area.maxScore}`;
     target.append(li);
   }
 }
@@ -195,10 +195,9 @@ function renderDashboard() {
   renderAreaSummary(details.areaScores);
   renderAreaBadges(details.areaScores);
 
-  const filteredSkillScores = details.skillScores.filter((s) => checkedAreas.has(s.areaId));
-  const sortedFiltered = [...filteredSkillScores].sort((a, b) => b.score - a.score);
-  renderSkillRanking(strengthsList, sortedFiltered.slice(0, 3));
-  renderSkillRanking(opportunitiesList, sortedFiltered.slice(-3).reverse());
+  const sortedAreas = [...details.areaScores].sort((a, b) => b.score - a.score);
+  renderAreaRanking(strengthsList, sortedAreas.slice(0, 3));
+  renderAreaRanking(opportunitiesList, sortedAreas.slice(-3).reverse());
 }
 
 function resetProfile() {
