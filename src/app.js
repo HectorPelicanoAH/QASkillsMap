@@ -195,7 +195,7 @@ function renderDashboard() {
   renderAreaSummary(details.areaScores);
   renderAreaBadges(details.areaScores);
 
-  const sortedAreas = [...details.areaScores].sort((a, b) => b.score - a.score);
+  const sortedAreas = details.areaScores.filter((a) => checkedAreas.has(a.areaId)).sort((a, b) => b.score - a.score);
   renderAreaRanking(strengthsList, sortedAreas.slice(0, 3));
   renderAreaRanking(opportunitiesList, sortedAreas.slice(-3).reverse());
 }
