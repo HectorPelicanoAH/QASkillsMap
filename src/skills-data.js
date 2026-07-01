@@ -22,7 +22,7 @@ export const SKILL_AREAS = [
           'Conoces pruebas básicas funcionales y caja negra.',
           'Aplicas partición de equivalencia, valores límite y tablas de decisión.',
           'Dominas técnicas avanzadas (pairwise, grafos de causa-efecto) y criterios de cobertura.',
-          'Defines la estrategia de diseño del equipo y formas a otros en técnicas avanzadas.'
+          'Defines la estrategia de diseño de casos de prueba y/o defines la estrategia de UAT.'
         ]
       },
       {
@@ -59,6 +59,18 @@ export const SKILL_AREAS = [
           'Seleccionas casos de regresión relevantes según el impacto del cambio.',
           'Diseñas estrategias de regresión selectiva y smoke testing automatizado.',
           'Optimizas el portfolio de regresión con cobertura basada en riesgo y datos.'
+        ]
+      },
+      {
+        id: 'mobile-manual-testing',
+        name: 'Testing manual en iOS y Android',
+        weight: 3,
+        levelDescriptions: [
+          'No has ejecutado pruebas manuales en aplicaciones mobile.',
+          'Ejecutas casos básicos en dispositivos o emuladores siguiendo un checklist.',
+          'Validas flujos críticos considerando permisos, interrupciones, orientación y distintos tamaños de pantalla.',
+          'Diseñas estrategias de testing por device matrix, versiones OS y condiciones reales de uso.',
+          'Defines la estrategia global de testing manual mobile y optimizas cobertura/riesgo para múltiples productos.'
         ]
       }
     ]
@@ -115,6 +127,18 @@ export const SKILL_AREAS = [
           'Escribes escenarios Gherkin bien estructurados y reutilizables.',
           'Diseñas la capa de step definitions, coordinas con negocio los escenarios.',
           'Lideras la adopción de BDD en la organización y facilitas Example Mapping.'
+        ]
+      },
+      {
+        id: 'mobile-automation-appium',
+        name: 'Automatización mobile (Appium / Maestro / Detox)',
+        weight: 3,
+        levelDescriptions: [
+          'No has automatizado pruebas mobile.',
+          'Ejecutas suites existentes y entiendes la estructura básica de tests mobile.',
+          'Implementas tests estables con locators robustos, sincronización y manejo de datos de prueba.',
+          'Diseñas frameworks mobile reutilizables, paralelización y ejecución multi-device en CI.',
+          'Defines estándares de automatización mobile a escala y lideras iniciativas anti-flakiness en la organización.'
         ]
       }
     ]
@@ -238,15 +262,15 @@ export const SKILL_AREAS = [
     weight: 8,
     skills: [
       {
-        id: 'jira',
-        name: 'Jira',
+        id: 'jira-azure-devops',
+        name: 'Jira / Azure DevOps',
         weight: 2,
         levelDescriptions: [
-          'No has usado Jira.',
+          'No has usado Jira o Azure DevOps.',
           'Creas y actualizas tickets básicos (bugs, tasks).',
           'Gestionas sprints, epics y subtareas, usas filtros JQL básicos.',
           'Configuras proyectos, workflows personalizados, dashboards y automatizaciones.',
-          'Administras Jira a nivel organizacional y defines procesos de gestión de defectos.'
+          'Administras Jira o Azure DevOps a nivel organizacional y defines procesos de gestión de defectos.'
         ]
       },
       {
@@ -371,6 +395,74 @@ export const SKILL_AREAS = [
           'Usas herramientas (ELK, Splunk, CloudWatch) para buscar y filtrar eventos.',
           'Creas queries avanzadas, alertas y correlaciones entre servicios distribuidos.',
           'Diseñas la estrategia de logging y tracing distribuido del equipo.'
+        ]
+      }
+    ]
+  },
+  {
+    id: 'accessibility',
+    name: 'Accesibilidad',
+    chartLabel: 'Accesi-\nbilidad',
+    weight: 10,
+    skills: [
+      {
+        id: 'wcag-knowledge',
+        name: 'WCAG y cumplimiento normativo',
+        weight: 3,
+        levelDescriptions: [
+          'No conoces pautas de accesibilidad ni estándares WCAG.',
+          'Conoces principios básicos (perceptible, operable, comprensible, robusto) y términos comunes.',
+          'Aplicas criterios WCAG 2.1 AA en revisiones funcionales y detectas incumplimientos frecuentes.',
+          'Interpretas criterios complejos, defines checklists de cumplimiento y acompañas remediaciones.',
+          'Lideras la estrategia de accesibilidad, defines políticas de cumplimiento y referencias normativas.'
+        ]
+      },
+      {
+        id: 'a11y-manual-testing',
+        name: 'Testing manual de accesibilidad',
+        weight: 3,
+        levelDescriptions: [
+          'No has ejecutado pruebas manuales de accesibilidad.',
+          'Validas aspectos básicos como contraste, tamaño de fuente y textos alternativos.',
+          'Ejecutas pruebas de navegación por teclado, foco visible, estructura de headings y formularios.',
+          'Diseñas sesiones de testing a11y por flujos críticos y priorizas hallazgos por impacto en usuarios.',
+          'Defines el proceso de testing manual a11y del equipo y entrenas a otros QAs en técnicas avanzadas.'
+        ]
+      },
+      {
+        id: 'a11y-automation-tools',
+        name: 'Automatización con herramientas a11y',
+        weight: 2,
+        levelDescriptions: [
+          'No has usado herramientas automáticas de accesibilidad.',
+          'Ejecutas escaneos puntuales con herramientas como Lighthouse o axe en entornos locales.',
+          'Integras checks automáticos de accesibilidad en suites de UI y reportas issues accionables.',
+          'Configuras reglas, umbrales y ejecución en CI para prevenir regresiones de accesibilidad.',
+          'Diseñas una estrategia híbrida (manual + automatizada) y defines estándares de calidad a11y en la organización.'
+        ]
+      },
+      {
+        id: 'assistive-tech-validation',
+        name: 'Validación con tecnologías asistivas',
+        weight: 2,
+        levelDescriptions: [
+          'No has validado productos con tecnologías asistivas.',
+          'Conoces conceptos de lectores de pantalla y haces pruebas básicas guiadas.',
+          'Pruebas flujos con NVDA/VoiceOver y verificas anuncios, landmarks y orden de lectura.',
+          'Diagnosticas problemas complejos de ARIA, nombre accesible y comportamiento dinámico del DOM.',
+          'Lideras validaciones con usuarios y tecnologías asistivas, y defines criterios de aceptación inclusivos.'
+        ]
+      },
+      {
+        id: 'mobile-accessibility-testing',
+        name: 'Accesibilidad en mobile (TalkBack / VoiceOver)',
+        weight: 2,
+        levelDescriptions: [
+          'No has evaluado accesibilidad en apps mobile.',
+          'Validas aspectos básicos de accesibilidad mobile en pantallas clave.',
+          'Pruebas navegación con TalkBack/VoiceOver, foco, etiquetas y orden de lectura en iOS/Android.',
+          'Diseñas pruebas de accesibilidad mobile por device matrix y priorizas hallazgos según impacto.',
+          'Defines estándares de accesibilidad mobile y guías de validación para equipos de producto.'
         ]
       }
     ]
